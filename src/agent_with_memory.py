@@ -108,7 +108,7 @@ def create_memory_chat_agent():
         "agent", should_summarize, {"summarize": "summarize", "end": END}
     )
 
-    graph.add_edge("summarize", END)
+    graph.add_edge("summarize", "agent")
 
     # 使用内存检查点, 启动会话级记忆
     memory = MemorySaver()
@@ -172,6 +172,9 @@ def interactive_chat(thread_id: Optional[str] = None):
     print("输入 'quit' 退出聊天")
 
     agent = create_memory_chat_agent()
+    mermaid_code = agent.get_graph().draw_mermaid()
+    print(f"Mermaid 图结构: \n{mermaid_code}")
+    print("Mermaid 在线编辑器: https://mermaid.live/")
 
     config = {"configurable": {"thread_id": thread_id or "interactive_session"}}
 
