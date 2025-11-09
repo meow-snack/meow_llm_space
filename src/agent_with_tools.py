@@ -27,12 +27,6 @@ llm = ChatOpenAI(
     api_key=os.getenv("DEEPSEEK_API_KEY"),
 )
 
-SYSTEM_PROMPT = (
-    "你是一个智能助手, 可以使用以下工具来帮助用户:"
-    "1. get_current_time: 获取当前时间"
-    "2. search_wikipedia: 搜索维基百科"
-)
-
 
 # 3. 定义工具
 @tool
@@ -85,8 +79,6 @@ def should_continue(state: State):
 
 
 def agent_node(state: State):
-    # messages = [SystemMessage(content=SYSTEM_PROMPT)]
-    # messages.extend(state.get("messages", []))
     response = llm.invoke(state["messages"])
     return {"messages": [response]}
 
