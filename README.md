@@ -7,5 +7,5 @@
 |------|------|
 | 基础 agent | [code](./src/basic_agent.py)|
 | 带记忆的 agent | [code](./src/agent_with_memory.py)|
-| HITL agent| // todo |
-| 带工具的 agent| // todo |
+| HITL agent| [code](./src/hitl_agent.py) |
+| 带工具的 agent| [code](./src/agent_with_tools.py) |
